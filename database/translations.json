@@ -1,0 +1,104 @@
+{
+    "siteTitle": {
+        "de": "Tasktical - Effizienter lokaler Aufgabenplaner",
+        "en": "Tasktical - Lightweight local task planner"
+    },
+
+    "newTask": {
+        "de": "+ Neue Aufgabe",
+        "en": "+ New Task"
+    },
+    "langButton": {
+        "de": "DE",
+        "en": "EN"
+    },
+
+    "search": {
+        "de": "Suchen...",
+        "en": "Search..."
+    },
+    "resetFilter": {
+        "de": "Filter zurücksetzen",
+        "en": "Reset filter"
+    },
+    "filtering": {
+        "de": "Filtern nach...",
+        "en": "Filter by..."
+    },
+    "priority": {
+        "de": "Priorität",
+        "en": "Priority"
+    },
+    "category": {
+        "de": "Kategorie",
+        "en": "Category"
+    },
+    "dueDate": {
+        "de": "Fälligkeit",
+        "en": "Due date"
+    },
+
+    "status.open": {
+        "de": "Offen",
+        "en": "Open"
+    },
+    "status.inProgress": {
+        "de": "In Bearbeitung",
+        "en": "In progress"
+    },
+    "status.done": {
+        "de": "Erledigt",
+        "en": "Done"
+    },
+
+    "priority.low": {
+        "de": "Niedrig",
+        "en": "Low"
+    },
+    "priority.medium": {
+        "de": "Mittel",
+        "en": "Medium"
+    },
+    "priority.high": {
+        "de": "Hoch",
+        "en": "High"
+    },
+    "priority.urgent": {
+        "de": "Dringend",
+        "en": "Urgent"
+    },
+
+    "category.work": {
+        "de": "Arbeit",
+        "en": "Work"
+    },
+    "category.personal": {
+        "de": "Persönlich",
+        "en": "Personal"
+    },
+    "category.learning": {
+        "de": "Lernen",
+        "en": "Learning"
+    },
+    "category.other": {
+        "de": "Sonstiges",
+        "en": "Other"
+    },
+
+    "due.today": {
+        "de": "Heute",
+        "en": "Today"
+    },
+    "due.tomorrow": {
+        "de": "Morgen",
+        "en": "Tomorrow"
+    },
+    "due.thisWeek": {
+        "de": "Diese Woche",
+        "en": "This week"
+    },
+    "due.later": {
+        "de": "Später",
+        "en": "Later"
+    }
+}

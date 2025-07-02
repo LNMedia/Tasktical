@@ -1,0 +1,194 @@
+:root {
+    /* === Base Backgrounds === */
+    --color-bg:          #1e293b;
+    --color-surface:     #273449;
+    --color-panel:       #334155;
+    --color-border:      #475569;
+  
+    /* === Text === */
+    --color-text:        #e5e7eb;
+    --color-text-muted:  #94a3b8;
+    --color-heading:     #f8fafc;
+  
+    /* === Primary (Türkis) === */
+    --color-primary:         #2dd4bf;
+    --color-primary-hover:   #22c1ac;
+    --color-primary-active:  #1db8a3;
+  
+    /* === Accent / Danger (Rot) === */
+    --color-danger:         #ef4444;
+    --color-danger-hover:   #dc2626;
+    --color-danger-bg:      #4b1c1c;
+  
+    /* === Inputs / Forms === */
+    --input-bg:         #334155;
+    --input-border:     #475569;
+    --input-focus:      #2dd4bf;
+    --input-radius:     0.375rem;
+  
+    /* === Modals === */
+    --modal-bg:         #273449;
+    --modal-overlay:    rgba(15, 23, 42, 0.7);
+    --modal-radius:     0.75rem;
+    --modal-shadow:     0 8px 24px rgba(0, 0, 0, 0.2);
+  
+    /* === Buttons === */
+    --btn-padding:      0.5rem 1rem;
+    --btn-radius:       0.5rem;
+    --btn-shadow:       0 2px 4px rgba(0, 0, 0, 0.2);
+    --btn-shadow-hover: 0 3px 8px rgba(0, 0, 0, 0.4);
+    --btn-shadow-active:0 3px 6px rgba(0, 0, 0, 0.4);
+  
+    /* === Scrollbar === */
+    --scroll-thumb:     #64748b;
+    --scroll-track:     #1e293b;
+}
+
+* {
+    user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* === Header Styling === */
+header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% - 30px);
+    height: 70px;
+    padding: 15px;
+    z-index: 10000;
+    background: var(--color-surface);
+    box-shadow: var(--btn-shadow);
+}
+header .logoContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 95%;
+    width: 300px;
+}
+header .logoContainer img {
+    position: relative;
+    width: 100%;
+    filter: drop-shadow(1px 1px 5px black);
+}
+header .buttonContainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    z-index: 1;
+}
+header .buttonContainer button {
+    position: relative;
+    padding: var(--btn-padding);
+    border-radius: var(--btn-radius);
+    box-shadow: var(--btn-shadow);
+    color: var(--color-text);
+    background: var(--color-primary);
+    overflow: hidden;
+    background: none;
+    border: hidden;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+header .buttonContainer button:hover {
+    transform: translate(0,-3px);
+    box-shadow: var(--btn-shadow-hover);
+}
+header .buttonContainer button:active {
+    transform: translate(0,-2px);
+    box-shadow: var(--btn-shadow-active);
+}
+header .buttonContainer .changeLang::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    filter: blur(2px) brightness(.7);
+    z-index: -1;
+}
+header .buttonContainer .changeLang[data-lang="en"]::before {
+    background-image: url('app:///img/lang/en.webp');
+}
+header .buttonContainer .changeLang[data-lang="de"]::before {
+    background-image: url('app:///img/lang/de.webp');
+}
+header .buttonContainer .newTask {
+    background: var(--input-bg);
+}
+
+
+/* === Main Content Styling === */
+main {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 137px);
+}
+
+
+/* === Footer Styling === */
+footer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(100% - 10px);
+    height: 25px;
+    padding: 5px;
+    z-index: 10000;
+    gap: 15px;
+    background: var(--color-surface);
+    box-shadow: var(--btn-shadow);
+}
+footer .colorContainer {
+    position: relative;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    border-radius: var(--btn-radius);
+}
+footer .statusContainer {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 25px;
+    padding: 0px 5px;
+    width: calc(100% - 40px);
+    border-radius: var(--btn-radius);
+    white-space: nowrap;
+    overflow: hidden;
+}
+footer .statusContainer::before {
+     content: "";
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     background: rgba(0,0,0,.5);
+}

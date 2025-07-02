@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Security-Policy" content="
+            default-src 'self' app:;
+            script-src 'self' app:;
+            style-src 'self' 'unsafe-inline' app: app://*;
+            style-src-elem 'self' 'unsafe-inline' app: app://*;
+            img-src 'self' data: app:;
+            font-src 'self' app:;
+            connect-src 'self' ws: app:;
+        ">
+        <title data-key="siteTitle"></title>
+        <link rel="stylesheet" href="app:///css/style.css" />
+    </head>
+    <body>
+        <header>
+            <div class="logoContainer">
+                <img src="app:///img/logo.png" alt="Tasktical Logo">
+            </div>
+            <div class="buttonContainer">
+                <button class="newTask" data-key="newTask"></button>
+                <button class="changeLang" data-lang="" data-change="" data-key="langButton"></button>
+            </div>
+        </header>
+
+        <main>
+            <aside class="filterMenu">
+                <div class="searchContainer">
+                    <label for="searchBar" data-key="search"></label>
+                    <input type="search" id="searchBar" name="searchBar" placeholder="...">
+                </div>
+                <nav class="filterNav">
+                    <label data-key="filtering"></label>
+                    <button class="resetFilter" data-key="resetFilter"></button>
+                  
+                    <div class="filterContainer filterByStatus">
+                        <h5>Status</h5>
+                        <ul>
+                            <li data-key="status.open"></li>
+                            <li data-key="status.inProgress"></li>
+                            <li data-key="status.done"></li>
+                        </ul>
+                    </div>
+                  
+                    <div class="filterContainer filterByPriority">
+                        <h5 data-key="priority"></h5>
+                        <ul>
+                            <li data-key="priority.low"></li>
+                            <li data-key="priority.medium"></li>
+                            <li data-key="priority.high"></li>
+                            <li data-key="priority.urgent"></li>
+                        </ul>
+                    </div>
+                  
+                    <div class="filterContainer filterByCategory">
+                        <h5 data-key="category"></h5>
+                        <ul>
+                            <li data-key="category.work"></li>
+                            <li data-key="category.personal"></li>
+                            <li data-key="category.learning"></li>
+                            <li data-key="category.other"></li>
+                        </ul>
+                    </div>
+                  
+                    <div class="filterContainer filterByDate">
+                        <h5 data-key="dueDate"></h5>
+                        <ul>
+                            <li data-key="due.today"></li>
+                            <li data-key="due.tomorrow"></li>
+                            <li data-key="due.thisWeek"></li>
+                            <li data-key="due.later"></li>
+                        </ul>
+                    </div>
+                </nav>
+            </aside>
+        </main>
+
+        <footer class="statusBar">
+            <div class="colorContainer"></div>
+            <div class="statusContainer"></div>
+        </footer>
+        <script src="app:///js/script.js"></script>
+    </body>
+</html>
