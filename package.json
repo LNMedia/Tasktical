@@ -1,0 +1,29 @@
+{
+  "name": "tasktical",
+  "version": "1.0.0",
+  "description": "Lightweight local task planner - no cloud, no distractions.",
+  "keywords": [
+    "planning",
+    "planner",
+    "tool",
+    "tasks",
+    "task",
+    "nosql",
+    "database"
+  ],
+  "homepage": "https://github.com/LNMedia/Tasktical#readme",
+  "bugs": {
+    "url": "https://github.com/LNMedia/Tasktical/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LNMedia/Tasktical.git"
+  },
+  "license": "MIT",
+  "author": "Andreas Reimann",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon index.js"
+  }
+}
