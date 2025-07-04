@@ -98,9 +98,7 @@ To get started with Tasktical, clone the repository and install dependencies. Th
 ## Configuration
 
 Tasktical stores workspace data as SQLite database files in a user-defined directory. By default, these files are stored in:
-    ```text
-    C:\Users\[user]\AppData\Roaming\tasktical\database
-You can configure paths and app settings inside the configuration files or environment variables as needed.
+- "C:\Users\[user]\AppData\Roaming\tasktical\database"
 
 ---
 
