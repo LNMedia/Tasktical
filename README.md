@@ -66,7 +66,7 @@ To get started with Tasktical, clone the repository and install dependencies. Th
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/tasktical.git
+   git clone https://github.com/LNMedia/tasktical.git
    cd tasktical
 
 2. Install dependencies:
