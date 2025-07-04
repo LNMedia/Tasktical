@@ -6,82 +6,140 @@
         <meta http-equiv="Content-Security-Policy" content="
             default-src 'self' app:;
             script-src 'self' app:;
-            style-src 'self' 'unsafe-inline' app: app://*;
-            style-src-elem 'self' 'unsafe-inline' app: app://*;
+            style-src 'self' 'unsafe-inline' app: app://* https://cdn.jsdelivr.net;
+            style-src-elem 'self' 'unsafe-inline' app: app://* https://cdn.jsdelivr.net;
             img-src 'self' data: app:;
-            font-src 'self' app:;
+            font-src 'self' app: https://cdn.jsdelivr.net;
             connect-src 'self' ws: app:;
         ">
         <title data-key="siteTitle"></title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
         <link rel="stylesheet" href="app:///css/style.css" />
     </head>
     <body>
+        <!-- Header -->
         <header>
             <div class="logoContainer">
                 <img src="app:///img/logo.png" alt="Tasktical Logo">
             </div>
             <div class="buttonContainer">
-                <button class="newTask" data-key="newTask"></button>
                 <button class="changeLang" data-lang="" data-change="" data-key="langButton"></button>
             </div>
         </header>
 
         <main>
-            <aside class="filterMenu">
-                <div class="searchContainer">
-                    <label for="searchBar" data-key="search"></label>
-                    <input type="search" id="searchBar" name="searchBar" placeholder="...">
-                </div>
-                <nav class="filterNav">
-                    <label data-key="filtering"></label>
-                    <button class="resetFilter" data-key="resetFilter"></button>
-                  
-                    <div class="filterContainer filterByStatus">
-                        <h5>Status</h5>
-                        <ul>
-                            <li data-key="status.open"></li>
-                            <li data-key="status.inProgress"></li>
-                            <li data-key="status.done"></li>
-                        </ul>
-                    </div>
-                  
-                    <div class="filterContainer filterByPriority">
-                        <h5 data-key="priority"></h5>
-                        <ul>
-                            <li data-key="priority.low"></li>
-                            <li data-key="priority.medium"></li>
-                            <li data-key="priority.high"></li>
-                            <li data-key="priority.urgent"></li>
-                        </ul>
-                    </div>
-                  
-                    <div class="filterContainer filterByCategory">
-                        <h5 data-key="category"></h5>
-                        <ul>
-                            <li data-key="category.work"></li>
-                            <li data-key="category.personal"></li>
-                            <li data-key="category.learning"></li>
-                            <li data-key="category.other"></li>
-                        </ul>
-                    </div>
-                  
-                    <div class="filterContainer filterByDate">
-                        <h5 data-key="dueDate"></h5>
-                        <ul>
-                            <li data-key="due.today"></li>
-                            <li data-key="due.tomorrow"></li>
-                            <li data-key="due.thisWeek"></li>
-                            <li data-key="due.later"></li>
-                        </ul>
-                    </div>
+            <!-- Side-Navigation -->
+            <aside class="active">
+                <!-- Navigation-Closer -->
+                <div class="asideCloser active"></div>
+                
+                <!-- Navigation -->
+                <nav>
+                    <!-- Favorites -->
+                    <section class="navSection" data-index="Favorites">
+                        <div class="navButton" data-index="Favorites">
+                            <i class="fas fa-star"></i>
+                            <p data-key="favorites"></p>
+                        </div>
+                        <div class="subMenu" data-index="Favorites">
+                            <div class="item">
+                                <i class="fas fa-user"></i>
+                                <p>Test</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Workspaces -->
+                    <section class="navSection" data-index="Workspaces">
+                        <div class="navButton" data-index="Workspaces">
+                            <i class="fas fa-briefcase"></i>
+                            <p data-key="workspaces"></p>
+                        </div>
+                        <div class="subMenu" data-index="Workspaces">
+                            <div class="item">
+                                <i class="fas fa-user"></i>
+                                <p>Test</p>
+                            </div>
+                            <button class="addBtnNav" data-key="addBtn" data-category="Workspaces"></button>
+                        </div>
+                    </section>
+
+                    <!-- Workspaces -->
+                    <section class="navSection" data-index="Tables">
+                        <div class="navButton" data-index="Tables">
+                            <i class="fas fa-database"></i>
+                            <p data-key="dataspace"></p>
+                        </div>
+                        <div class="subMenu" data-index="Tables">
+                            <div class="item">
+                                <i class="fas fa-user"></i>
+                                <p>Test</p>
+                            </div>
+                            <button class="addBtnNav" data-key="addBtn" data-category="Tables"></button>
+                        </div>
+                    </section>
                 </nav>
+
+                <!-- Settings & Legal-Links -->
+                <div class="sectionDeviderHori"></div>
+                <div class="legal">
+                    <div class="row">
+                        <button class="changeLang" data-lang="" data-change="" data-key="langButton"></button>
+                        <a href="https://areimann.de/impress" target="_blank" data-key="impress"></a>
+                    </div>
+                    <p>&copy; 2025 - <span class="activeYear"></span> &nbsp; by Andreas Reimann</p>
+                </div>
             </aside>
+
+            <!-- Site-Content -->
+            <section class="contentContainer">
+
+            </section>
         </main>
 
-        <footer class="statusBar">
-            <div class="colorContainer"></div>
-            <div class="statusContainer"></div>
-        </footer>
-        <script src="app:///js/script.js"></script>
+        <div class="modalContainer active">
+            <form class="modalForm active" data-category="Workspaces" id="workspaceForm">
+                <h2 data-key="newWorkSpace"></h2>
+
+                <div class="custom-select">
+                    <div class="select-trigger" data-key="selectIcon"></div>
+                    <div class="options-container"></div>
+                </div>
+                <input type="hidden" name="icon" id="iconInput" />
+                
+                <label for="workspaceName" data-key="workspaceName"></label>
+                <input
+                    type="text"
+                    id="workspaceName"
+                    name="workspaceName"
+                    placeholder="..."
+                    required
+                />
+        
+                <div class="formActions">
+                    <button data-key="create" type="submit">Erstellen</button>
+                </div>
+            </form>
+            <form class="modalForm" data-category="Tables" id="workspaceForm">
+                <h2>Neuer Workspace</h2>
+        
+                <label for="workspaceName">Name des Workspaces</label>
+                <input
+                    type="text"
+                    id="workspaceName"
+                    name="workspaceName"
+                    placeholder="z.B. Persönlich, Projekte, Archiv ..."
+                    required
+                />
+        
+                <div class="formActions">
+                    <button type="submit">Erstellen</button>
+                </div>
+            </form>
+        </div>
+
+        <script src="app:///js/i18n.js"></script>
+        <script src="app:///js/db.js"></script>
+        <script src="app:///js/dom.js"></script>
     </body>
 </html>

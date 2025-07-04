@@ -24,7 +24,6 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js",
     "start": "electron ."
   },
   "dependencies": {
@@ -32,7 +31,7 @@
     "ejs": "^3.1.10",
     "electron": "^37.1.0",
     "electron-builder": "^26.0.12",
-    "nodemon": "^3.1.10"
+    "electron-rebuild": "^3.2.9"
   },
   "devDependencies": {
     "electron-reload": "^2.0.0-alpha.1"

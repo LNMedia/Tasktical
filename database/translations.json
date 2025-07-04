@@ -3,6 +3,10 @@
         "de": "Tasktical - Effizienter lokaler Aufgabenplaner",
         "en": "Tasktical - Lightweight local task planner"
     },
+    "impress": {
+        "de": "Impressum",
+        "en": "Impress"
+    },
 
     "newTask": {
         "de": "+ Neue Aufgabe",
@@ -25,18 +29,6 @@
         "de": "Filtern nach...",
         "en": "Filter by..."
     },
-    "priority": {
-        "de": "Priorität",
-        "en": "Priority"
-    },
-    "category": {
-        "de": "Kategorie",
-        "en": "Category"
-    },
-    "dueDate": {
-        "de": "Fälligkeit",
-        "en": "Due date"
-    },
 
     "status.open": {
         "de": "Offen",
@@ -51,6 +43,10 @@
         "en": "Done"
     },
 
+    "priority": {
+        "de": "Priorität",
+        "en": "Priority"
+    },
     "priority.low": {
         "de": "Niedrig",
         "en": "Low"
@@ -68,6 +64,10 @@
         "en": "Urgent"
     },
 
+    "category": {
+        "de": "Kategorie",
+        "en": "Category"
+    },
     "category.work": {
         "de": "Arbeit",
         "en": "Work"
@@ -85,6 +85,10 @@
         "en": "Other"
     },
 
+    "dueDate": {
+        "de": "Fälligkeit",
+        "en": "Due date"
+    },
     "due.today": {
         "de": "Heute",
         "en": "Today"
@@ -100,5 +104,124 @@
     "due.later": {
         "de": "Später",
         "en": "Later"
+    },
+
+    "recurrence": {
+        "de": "Wiederholung",
+        "en": "Recurrence"
+    },
+    "recurrence.none": {
+        "de": "Keine",
+        "en": "None"
+    },
+    "recurrence.daily": {
+        "de": "Täglich",
+        "en": "Daily"
+    },
+    "recurrence.weekly": {
+        "de": "Wöchentlich",
+        "en": "Weekly"
+    },
+    "recurrence.monthly": {
+        "de": "Monatlich",
+        "en": "Monthly"
+    },
+    "recurrence.yearly": {
+        "de": "Jährlich",
+        "en": "Yearly"
+    },
+
+    "context": {
+        "de": "Kontext",
+        "en": "Context"
+    },
+    "context.home": {
+        "de": "Zuhause",
+        "en": "Home"
+    },
+    "context.office": {
+        "de": "Büro",
+        "en": "Office"
+    },
+    "context.outdoor": {
+        "de": "Draußen",
+        "en": "Outdoor"
+    },
+    "context.shopping": {
+        "de": "Einkaufen",
+        "en": "Shopping"
+    },
+    "context.transport": {
+        "de": "Unterwegs",
+        "en": "In Transit"
+    },
+    "context.phone": {
+        "de": "Telefon",
+        "en": "Phone"
+    },
+
+    "flags": {
+        "de": "Markierungen",
+        "en": "Flags"
+    },
+    "flags.starred": {
+        "de": "Markiert",
+        "en": "Starred"
+    },
+    "flags.important": {
+        "de": "Wichtig",
+        "en": "Important"
+    },
+    "flags.blocked": {
+        "de": "Blockiert",
+        "en": "Blocked"
+    },
+    "flags.waiting": {
+        "de": "Wartet auf Antwort",
+        "en": "Waiting"
+    },
+    "flags.delegated": {
+        "de": "Delegiert",
+        "en": "Delegated"
+    },
+    "flags.review": {
+        "de": "Zur Durchsicht",
+        "en": "Needs Review"
+    },
+
+    "addBtn": {
+        "de": "+ Hinzufügen",
+        "en": "+ Add"
+    },
+    "create": {
+        "de": "Erstellen",
+        "en": "Create"
+    },
+
+    "favorites": {
+        "de": "Favoriten",
+        "en": "Favorites"
+    },
+
+    "workspaces": {
+        "de": "Arbeitsplätze",
+        "en": "Workspaces"
+    },
+    "newWorkSpace": {
+        "de": "Neuer Arbeitsplatz",
+        "en": "New Workspace"
+    },
+    "selectIcon": {
+        "de": "Wähle ein Icon",
+        "en": "Select an icon"
+    },
+    "workspaceName": {
+        "de": "Name des Arbeitsplatzes",
+        "en": "Name of workspace"
+    },
+    
+    "dataspace": {
+        "de": "Datensätze",
+        "en": "Data sets"
     }
 }

@@ -1,6 +1,5 @@
-const { app, BrowserWindow, protocol, ipcMain } = require('electron');
+const { app, BrowserWindow, protocol } = require('electron');
 const path = require('path');
-const fs = require('fs');
 
 require('electron-reload')(__dirname, {
     electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
@@ -10,6 +9,9 @@ require('electron-reload')(__dirname, {
         path.join(__dirname, 'views'),
         path.join(__dirname, 'public'),
         path.join(__dirname, 'config'),
+        path.join(__dirname, 'database'),
+        path.join(__dirname, 'helpers'),
+        path.join(__dirname, 'middleware'),
     ],
 });
 
@@ -28,7 +30,6 @@ function createWindow() {
     });
 
     win.setMenuBarVisibility(false);
-    win.webContents.openDevTools();
 
     const indexPath = path.join(__dirname, 'views', 'index.html');
     win.loadFile(indexPath);
@@ -42,17 +43,8 @@ app.whenReady().then(() => {
         callback({ path: filePath });
     });
 
-    ipcMain.handle('get-translations', (event, lang) => {
-        const translationsPath = path.join(__dirname, 'database', 'translations.json');
-        const rawData = fs.readFileSync(translationsPath, 'utf-8');
-        const allTranslations = JSON.parse(rawData);
-
-        const filteredTranslations = {};
-        for (const [key, translations] of Object.entries(allTranslations)) {
-            filteredTranslations[key] = translations[lang] || '';
-        }
-        return filteredTranslations;
-    });
+    require('./ipc/translations');
+    require('./ipc/workspaces');
 
     createWindow();
 });

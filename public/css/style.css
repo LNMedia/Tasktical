@@ -1,3 +1,4 @@
+/* === Root-Variables === */
 :root {
     /* === Base Backgrounds === */
     --color-bg:          #1e293b;
@@ -36,6 +37,7 @@
     --btn-padding:      0.5rem 1rem;
     --btn-radius:       0.5rem;
     --btn-shadow:       0 2px 4px rgba(0, 0, 0, 0.2);
+    --btn-shadow-reverse:       0 -2px 4px rgba(0, 0, 0, 0.2);
     --btn-shadow-hover: 0 3px 8px rgba(0, 0, 0, 0.4);
     --btn-shadow-active:0 3px 6px rgba(0, 0, 0, 0.4);
   
@@ -44,6 +46,7 @@
     --scroll-track:     #1e293b;
 }
 
+/* === Main Styling === */
 * {
     user-select: none;
     -webkit-user-drag: none;
@@ -63,6 +66,20 @@ body {
     overflow: hidden;
     margin: 0;
     padding: 0;
+}
+main {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: calc(100% - 100px);
+}
+.sectionDeviderHori {
+    position: relative;
+    width: 95%;
+    height: 1px;
+    background: var(--color-border);
+    margin: 10px 0px;
 }
 
 /* === Header Styling === */
@@ -92,14 +109,19 @@ header .logoContainer img {
     width: 100%;
     filter: drop-shadow(1px 1px 5px black);
 }
-header .buttonContainer {
+
+/* === Lang-Changer === */
+.legal .row {
     position: relative;
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-bottom: 10px;
     z-index: 1;
 }
-header .buttonContainer button {
+.changeLang {
     position: relative;
     padding: var(--btn-padding);
     border-radius: var(--btn-radius);
@@ -110,17 +132,21 @@ header .buttonContainer button {
     background: none;
     border: hidden;
     cursor: pointer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     transition: all .2s ease;
 }
-header .buttonContainer button:hover {
+.changeLang:hover {
     transform: translate(0,-3px);
     box-shadow: var(--btn-shadow-hover);
 }
-header .buttonContainer button:active {
+.changeLang:active {
     transform: translate(0,-2px);
     box-shadow: var(--btn-shadow-active);
 }
-header .buttonContainer .changeLang::before {
+.changeLang::before {
     position: absolute;
     content: "";
     top: 0;
@@ -132,63 +158,410 @@ header .buttonContainer .changeLang::before {
     filter: blur(2px) brightness(.7);
     z-index: -1;
 }
-header .buttonContainer .changeLang[data-lang="en"]::before {
+.changeLang[data-lang="en"]::before {
     background-image: url('app:///img/lang/en.webp');
 }
-header .buttonContainer .changeLang[data-lang="de"]::before {
+.changeLang[data-lang="de"]::before {
     background-image: url('app:///img/lang/de.webp');
 }
-header .buttonContainer .newTask {
-    background: var(--input-bg);
+
+/* === Side-Nav Styling === */
+main aside {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 5px;
+    width: 50px;
+    height: calc(100% - 10px);
+    background: var(--modal-bg);
+    transition: width .2s ease, padding .2s ease;
+    z-index: 1;
+}
+main aside.active {
+    padding: 10px;
+    width: 230px;
+    height: calc(100% - 20px);
+}
+main aside .asideCloser {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    top: 50%;
+    transform: translate(0,-50%);
+    height: 50px;
+    width: 15px;
+    margin-right: -15px;
+    background: var(--modal-bg);
+    border-radius: 0 8px 8px 0;
+    color: var(--color-text-muted);
+    opacity: 0.6;
+    transition: opacity .2s ease;
+    cursor: pointer;
+}
+main aside .asideCloser:hover {
+    opacity: 1;
+}
+main aside .asideCloser::before {
+    content: "⫸";
+    font-size: 13px;
+    margin-top: -3px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+main aside .asideCloser.active::before {
+    content: "⫷";
+    font-size: 13px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
 
+/* === Navigation Styling === */
+main aside nav {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    flex: 1;
+    gap: 10px;
+}
+main aside nav section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: var(--color-text);
+}
+main aside nav section .navButton {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--btn-radius);
+    box-shadow: var(--btn-shadow);
+    transition: all .2s ease;
+    cursor: pointer;
+}
+main aside nav section .navButton::before {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    content: "";
+    width: calc(100% - 2rem);
+    height: calc(100% - 1rem);
+    background: rgba(0,0,0,.2);
+    border-radius: var(--btn-radius);
+    padding: var(--btn-padding);
+}
+main aside nav section .navButton i,
+main aside nav section .subMenu .item i {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+}
+main aside.active nav section .navButton i,
+main aside.active nav section .subMenu .item i {
+    position: absolute;
+    left: 20px;
+}
+main aside nav section .navButton p,
+main aside nav section .subMenu .item p {
+    position: absolute;
+    display: none;
+    left: 50px;
+}
+main aside.active nav section .navButton p,
+main aside.active nav section .subMenu .item p {
+    display: flex;
+}
+main aside.active nav section .navButton::before {
+    content: "▼";
+}
+main aside.active nav section .navButton.active::before {
+    content: "▲";
+}
+main aside nav section .navButton:hover {
+    background: var(--color-danger);
+}
+main aside nav section .subMenu {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: all .2s ease;
+    background: var(--input-bg);
+    border-radius: 0 0 8px 8px;
+}
+main aside nav section .subMenu.active {
+    height: auto;
+}
+main aside nav section .subMenu .item {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+main aside nav section .subMenu .item:hover {
+    background: var(--color-primary);
+}
+main aside nav section .navButton.active,
+main aside nav section .navButton.active::before {
+    border-radius: .5rem .5rem 0 0;
+}
+main aside nav section .subMenu .addBtnNav {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-danger);
+    color: white;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+main aside nav section .subMenu .addBtnNav:hover,
+main aside nav section .subMenu .addBtnNav:focus {
+    background-color: var(--color-danger-hover);
+    box-shadow: 0 0 8px rgba(224, 62, 62, 0.6);
+    outline: none;
+}
 
-/* === Main Content Styling === */
-main {
+/* === Legal Styling === */
+main aside .legal {
     position: relative;
     width: 100%;
-    height: calc(100% - 137px);
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    transition: all .2s ease;
+}
+main aside .legal a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    display: none;
+}
+main aside .legal a:hover {
+    color: var(--color-primary-hover);
+    text-decoration: underline;
+}
+main aside .legal p {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: var(--color-text-muted);
+    display: none;
+}
+main aside.active .legal a,
+main aside.active .legal p {
+    display: flex;
 }
 
-
-/* === Footer Styling === */
-footer {
-    position: relative;
+/* === Modal Styling === */
+.modalContainer {
+    position: fixed;
+    inset: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 100001;
+    transition: opacity 0.3s ease;
+}
+.modalContainer.active {
+    display: flex;
+}
+.modalForm {
+    background-color: var(--modal-bg);
+    color: var(--color-text);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    min-width: 300px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeInModal 0.3s ease-out;
+}
+.modalForm.active {
+    display: flex;
+}
+.modalForm input,
+.modalForm textarea,
+.modalForm select {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: none;
+    background-color: var(--input-bg);
+    color: var(--color-text);
+    box-sizing: border-box;
+}
+.modalForm label {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 0.5rem;
+    display: block;
+    text-align: left;
+    color: var(--color-text);
+}
+.modalForm .formActions {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 400px;
+}
+.modalForm button {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--color-danger);
+    color: #fff;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+.modalForm button:hover {
+    background-color: var(--color-danger-hover);
+}
+.modalForm .custom-select {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.modalForm .options-container {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: calc(100% - 10px);
-    height: 25px;
-    padding: 5px;
-    z-index: 10000;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding: 10px;
     gap: 15px;
-    background: var(--color-surface);
-    box-shadow: var(--btn-shadow);
 }
-footer .colorContainer {
-    position: relative;
-    left: 5px;
-    width: 15px;
-    height: 15px;
-    border-radius: var(--btn-radius);
+.icon-selector-layout {
+    display: flex;
+    gap: 1rem;
+    border: 1px solid var(--input-bg);
+    border-radius: 0.75rem;
+    background-color: var(--modal-bg);
+    padding: 1rem;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
 }
-footer .statusContainer {
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 260px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+}
+.category-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--input-bg);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+}
+.category-icon:hover {
+    background-color: var(--input-hover-bg);
+}
+.category-icon.active {
+    border-color: var(--color-accent);
+    background-color: var(--input-hover-bg);
+}
+.icons-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 250px;
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    gap: 0.25rem;
+    padding-right: 0.5rem;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+}
+.option {
+    flex: 1 1 2rem;
+    height: 35px;
+    background-color: var(--input-bg);
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text);
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    min-width: 2.5rem; /* Für Browsersicherheit */
+}
+.option:hover {
+    background-color: var(--input-hover-bg);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+.category-list::-webkit-scrollbar,
+.icons-grid::-webkit-scrollbar {
+    width: 6px;
+}
+.category-list::-webkit-scrollbar-thumb,
+.icons-grid::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+/* === Content Styling === */
+main section.contentContainer {
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: flex-start;
     align-items: center;
-    height: 25px;
-    padding: 0px 5px;
-    width: calc(100% - 40px);
-    border-radius: var(--btn-radius);
-    white-space: nowrap;
-    overflow: hidden;
-}
-footer .statusContainer::before {
-     content: "";
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     background: rgba(0,0,0,.5);
+    padding: 10px;
+    flex: 1;
+    height: calc(100% - 20px);
+    z-index: 0;
 }
